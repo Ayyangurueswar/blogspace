@@ -15,7 +15,7 @@ const page = ({params}: {params: {
     return (
         <div className="h-full w-full px-12 py-8 flex flex-col items-center">
             <h1 className='text-5xl font-bold mb-8'>404</h1>
-            <div className="blog-text">Sorry, this post does not exist.</div>
+            <div className="text-slate-500">Sorry, this post does not exist.</div>
         </div>
     )
   }

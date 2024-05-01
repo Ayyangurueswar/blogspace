@@ -10,7 +10,7 @@ const Header = () => {
         <h1 className="text-3xl font-bold">BlogSpace</h1>
       </Link>
       <nav className="flex gap-7 justify-between items-center sm:w-1/3 sm:justify-end">
-        <Link href='/blog' className="hover:text-indigo-500">BLOGS</Link>
+        <Link href='/blog/page/1' className="hover:text-indigo-500">BLOGS</Link>
         <Link href='/about' className="hover:text-indigo-500">ABOUT</Link>
       </nav>
     </header>

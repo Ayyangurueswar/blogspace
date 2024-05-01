@@ -11,7 +11,7 @@ const CategoryLabel = ({category}: {category: String}) => {
   let color = category as keyof typeof colorKey;
   let bgColor = colorKey[color];
   return (
-    <Link href={`/blog/category/${category.toLowerCase()}`} className={`text-white
+    <Link href={`/blog/categories/${category.toLowerCase()}`} className={`text-white
     rounded-lg p-2 ${bgColor}`}>
         {category}
     </Link>
