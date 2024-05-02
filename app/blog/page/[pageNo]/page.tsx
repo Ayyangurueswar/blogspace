@@ -5,6 +5,20 @@ import Link from 'next/link';
 import Pagination from '@/app/ui/Pagination';
 import { getPosts } from '@/app/lib/posts';
 
+export async function generateStaticParams(){
+  const files = fs.readdirSync(path.join('posts'));
+  const totalPages = Math.ceil(files.length/3);
+  const pages = [];
+  for(let i = 1; i <= totalPages; i++){
+    pages.push(
+      {
+        pageNo: String(i),
+      }
+    )
+  }
+  return pages;
+}
+
 const page = ({params} : {params: {
     pageNo: string,
 }}) => {

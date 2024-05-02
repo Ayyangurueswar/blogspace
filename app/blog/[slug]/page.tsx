@@ -4,8 +4,16 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import Link from 'next/link';
 import CategoryLabel from '@/app/ui/CategoryLabel';
-import Image from 'next/image';
 
+export async function generateStaticParams() {
+    const files = fs.readdirSync(path.join('posts'));
+    const params = files.map((file) => (
+        {
+            slug: file.replace('.md', ''),
+        }
+    ))
+    return params;
+}
 
 const page = ({params}: {params: {
     slug: string,
@@ -31,10 +39,10 @@ const page = ({params}: {params: {
                 <h2 className='text-3xl font-bold'>{frontmatter.title}</h2>
                 <CategoryLabel category={frontmatter.category}/>
             </div>
-            <Image src={frontmatter.cover_image} alt={frontmatter.title} width={750} height={700}/>
+            <img src={frontmatter.cover_image} alt={frontmatter.title} className='w-3/4 h-full'/>
             <div className='w-full flex justify-between items-center p-3 bg-slate-100'>
                 <div className='flex gap-2 items-center'>
-                    <Image src={frontmatter.author_image} alt={frontmatter.author} width={30} height={10} className='rounded-full'/>
+                    <img src={frontmatter.author_image} alt={frontmatter.author} className='w-10 h-10 rounded-full'/>
                     <p>{frontmatter.author}</p>
                 </div>
                 <p>{frontmatter.date}</p>

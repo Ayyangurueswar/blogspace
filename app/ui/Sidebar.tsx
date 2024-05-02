@@ -43,7 +43,7 @@ const Sidebar = ({posts}: {
             <h2 className='text-xl mb-4 underline'>Categories</h2>
             <div className='flex flex-col gap-2'>
             {listCategories.map((category) => (
-              <Link href={`/categories/${category.toLowerCase()}`} key={category} className={`text-slate-700 rounded p-2 w-full hover:bg-blue-500 hover:text-white transition-colors`}>
+              <Link href={`/blog/categories/${category.toLowerCase()}`} key={category} className={`text-slate-700 rounded p-2 w-full hover:bg-blue-500 hover:text-white transition-colors`}>
                   {category}
               </Link>
             ))}

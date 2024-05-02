@@ -2,6 +2,22 @@ import Post from '../../../ui/Post';
 import { getPosts } from '@/app/lib/posts';
 import CategoryList from '@/app/ui/CategoryList';
 
+export async function generateStaticParams(){
+  const listCategories = new Array<string>();
+  const posts = getPosts();
+  const categories = posts.map((post) => post.frontmatter.category);
+  const uniqueCategories = new Set<string>(categories);
+  uniqueCategories.forEach((category: string) => {
+    listCategories.push(category);
+  })
+  const params = listCategories.map((category) => (
+    {
+      category: category.toLowerCase(),
+    }
+  ))
+  return params;
+}
+
 const CategoryPage = ({params}: {
     params: {
         category: string,
